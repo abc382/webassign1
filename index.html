@@ -1,0 +1,33 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+    <script>
+        function teacher() {
+            nstu = parseInt(prompt("How many students?"));
+            let markarr = [];
+            for (let i = 0; i < nstu; i++) {
+                marks = parseInt(prompt("Enter marks for student id " + (i + 1).toString()));
+                markarr.push(marks);
+            }
+            function student() {
+                alert("Inside Inner class, markarr from outer class is accessible: " + markarr);
+                i = parseInt(prompt("Enter your student id"));
+                document.write(markarr[i - 1]);
+            }
+            return student;
+        }
+    </script>
+</head>
+
+<body>
+    <script>
+        a = teacher()
+        a()
+    </script>
+</body>
+
+</html>
